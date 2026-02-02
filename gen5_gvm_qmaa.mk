@@ -1,0 +1,42 @@
+TARGET_BOARD_DERIVATIVE_SUFFIX := _qmaa
+
+# Inherit from the base product
+include device/qcom/gen5_gvm/gen5_gvm.mk
+
+LOCAL_PATH := $(call my-dir)
+
+PRODUCT_NAME := gen5_gvm_qmaa
+PRODUCT_DEVICE := gen5_gvm_qmaa
+PRODUCT_BRAND := qti
+PRODUCT_MODEL := gen5_gvm_qmaa for arm64
+
+TARGET_USES_QMAA := true
+TARGET_USES_QMAA_OVERRIDE_AUDIO   := false
+TARGET_USES_QMAA_OVERRIDE_DISPLAY := false
+#TARGET_USES_QMAA_OVERRIDE_FASTCV  := true
+TARGET_USES_QMAA_OVERRIDE_GFX := false
+#TARGET_USES_QMAA_OVERRIDE_KMGK := false
+#TARGET_USES_QMAA_OVERRIDE_SECUREMSM_TESTS := false
+#TARGET_USES_QMAA_OVERRIDE_SMCINVOKE := false
+#TARGET_USES_QMAA_OVERRIDE_VIDEO   := false
+#TARGET_USES_QMAA_OVERRIDE_USB := false
+#TARGET_USES_QMAA_OVERRIDE_WLAN    := false
+#TARGET_KERNEL_DLKM_SECURE_MSM_OVERRIDE := false
+#TARGET_KERNEL_DLKM_SECUREMSM_QTEE_OVERRIDE := false
+#TARGET_KERNEL_DLKM_DISABLE := true
+TARGET_KERNEL_DLKM_DISPLAY_OVERRIDE := false
+TARGET_KERNEL_DLKM_AUDIO_OVERRIDE := false
+TARGET_KERNEL_DLKM_WLAN_OVERRIDE := false
+#TARGET_USES_QMAA_OVERRIDE_HSI2S := false
+#TARGET_KERNEL_DLKM_VIDEO_OVERRIDE := false
+#TARGET_KERNEL_DLKM_SYNX_OVERRIDE := false
+TARGET_DISABLE_DISPLAY_DLKM := true
+#TARGET_USES_QMAA_OVERRIDE_PLATFORM_KERNEL := false
+
+#DEVICE_MANIFEST_FILE := device/qcom/gen5_gvm_qmaa/manifest.xml
+
+$(call inherit-product-if-exists, vendor/qcom/defs/product-defs/system/*.mk)
+$(call inherit-product-if-exists, vendor/qcom/defs/product-defs/vendor/*.mk)
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.qmaa_hl_boot=1
